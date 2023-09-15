@@ -1,42 +1,3 @@
-// O objetivo deste trabalho  é  implementar  um programa que peça ao utilizador 20
-// números inteiros e os guarde num vetor, para  posteriormente  providenciar forma
-// de calcular algumas estatísticas ou fazer operações sobre esses valores.
-// Os valores pedidos devem estar compreendidos entre -5 e 11.
-// Deve ser feita a VALIDAÇÃO DE ENTRADA!
-
-// Após terem sido pedidos os valores, deve  ser mostrado um menu ao utilizador que
-// lhe permita calcular cada  uma  das  estatísticas referidas em baixo, exatamente
-// pela  ordem  colocadas  neste  enunciado.  Depois de  se  escolher  uma opção, o
-// resultado deve ser mostrado no ecrã, e o menu deve voltar a ser exibido.
-// As funcionalidades mínimas a disponibilizar são as seguintes:
-
-//   1 - Devolução dos valores em posições múltiplas de três do vetor;
-//   2 - Cálculo do seno (sin) de todos os elementos no vetor;
-//   3 - Cálculo da divisão de todos os elementos no vetor por 2;
-//   4 - Identificação do valor mais próximo de 15;
-//   5 - Construção de uma matriz 20 por 20, em que cada linha é composta pelo vetor
-//       lido (primeira linha) e por permutações dos seus valores (outras linhas);
-//   6 - Devolução do vetor ordenado por ordem decrescente.
-
-// Uma  versão  mais elaborada  do projeto  deve exibir adicionalmente as seguintes
-// características e funcionalidades:
-
-//   1 - Leitura de um novo vetor, cálculo  e  devolução  do  produto  interno com o
-//       vetor inicial;
-//   2 - Cálculo do mínimo múltiplo comum de cada dois números seguidos do vetor;
-//   3 - Leitura  de  um novo vetor  1x20,  cálculo  e  devolução  da  matriz 20x20
-//       resultante do produto do vetor inicial com o novo vetor gerado;
-//   4 - Cálculo e apresentação da matriz transposta referida no ponto anterior;
-//   5 - O programa apresenta  adicionalmente  uma  página de ajuda, acessível como
-//       sendo a entrada 7 no menu.
-//   6 - O programa  mostra  alguma  ajuda  quando é executado a partir da linha de
-//       comandos com a flag --help.
-
-
-// O programa deve ser implementado em C, e deve ser entregue no formato de um único
-// ficheiro, com o nome arrays.c, que deve ser submetido no Moodle.
-
-
 #include <stdio.h>
 #include <math.h>
 // Para colocar o comando system("cls");
@@ -44,10 +5,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void menu ()
-/**
-    @brief Imprime o menu de funcionalidades do programa  
+
+
+
+/*Este programa consiste em pedir 20 numeros ao utilizador.
+ *Os valores pedidos devem estar compreendidos entre -5 e 11.
+
+
 */
+
+
+// Função Menu
+//
+
+void menu ()
 {
     
     printf("*----------------------------------------------------------------------------------------------------*\n");
@@ -69,12 +40,10 @@ void menu ()
     
 }
 
+// Funçao help
+//
+
 void help ()
-/**
-    
-    @brief Imprime ajuda adicional ao utilizador 
-    @details Esta função imprime o menu do programa principal, este ajuda na navegação, instrução e utilização do mesmo, este subprograma não porta nenhum argumento de entrada e também não retorna qualquer tipo de valor.
-*/
 {
     
     printf("*----------------------------------------Menu Help----------------------------------------*\n");
@@ -86,23 +55,23 @@ void help ()
     printf("Apos introduzir o numero da funcionalidade, o programa vai executar a funçao com os numeros inteiros dados pelo utilizador.\n");
     printf("De seguida, o programa vai mostrar os valores finais da operacao, retornando para o menu principal de novo.\n");  
     printf("Se pretender utilizar outra funcionalidade apenas tem de introduzir o numero da funcionalidade que prentende usar.\n");
-    printf("Se pretende sair basta introduzir o falar que agrega a frase Sair do programa, neste caso e o numero 11.\n");
+    printf("Para utilizar a funcionalidade 11 terá de realizar primeiro a funcionalidade 10.");
+    printf("Se pretende sair basta introduzir o falar que agrega a frase Sair do programa, neste caso e o numero 12.\n");
     printf("Espero que tenha ajudado.\n");
-    printf("____________________________________________________________________________________________________________\n"); 
+    printf("____________________________________________________________________________________________________________\n");
+    printf("____________________________________________________________________________________________________________\n");
+    printf("____________________________________________________________________________________________________________\n");
+    printf("____________________________________________________________________________________________________________\n");
+    printf("____________________________________________________________________________________________________________\n");
+    
 }
 
+// Função de escrever o array
+//
 
 void escreverArray (int A[], int N)
-/**
-    
-    @brief Imprime os numeros inseridos no vetor pelo utilizador
-    @details  Esta função está encarregue de mostrar os elementos que pertencem ao array A composto por números inteiros. 
-    @param  A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos
-
-*/
 {
-  int k; /* Variável utilizada para percorrer o Array A[] */
+  int k;
   
   for (k = 0; k < N; k++){
   	printf("%d ", A[k]);
@@ -110,17 +79,13 @@ void escreverArray (int A[], int N)
   printf("\n");
 }
 
+// Função para verificar os valores introduzidos
+//
+
 void verificacao (int A[], int N)
-/**
-    
-    @brief Verifica os  valores introduzidos
-    @details Esta é uma função em C que lê um vetor de inteiros da entrada padrão e verifica se os elementos estão dentro de um determinado intervalo. A função recebe como parâmetros um vetor de inteiros e o tamanho desse vetor. O loop na linha 127 percorre o vetor elemento por elemento e solicita a entrada de um elemento na linha 131. Se o elemento estiver fora do intervalo [-5,11], uma mensagem é exibida na tela e o usuário é solicitado a inserir outro elemento. Se o elemento estiver dentro do intervalo, o loop passa para o próximo elemento.  
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos
-*/
 {
     
-    int n = 0; /* Variável utilizada para percorrer o Array A[] */
+    int n = 0;
     
     while (n<N)
     {
@@ -145,36 +110,34 @@ void verificacao (int A[], int N)
     
 }
 
+// Função para colocar um espaço
+//
 
 void espaco ()
-/**
-    
-    @brief Função para colocar uma quebra de linha
-    @details  Esta função quando é invocada faz uma quebra de linha, esta não tem parâmetros de entrada, e também não retorna valores
-*/
 {
 
     printf("\n");
 
 }
 
+// Função 1
+//
 
-int mult3(int A[], int n)
-/**
-    
-    @brief Imprime as posições do vetor que são multiplas de 3
-    @details  Este é um programa em C que tem como função imprimir os valores de um vetor que são múltiplos de 3. A função recebe como parâmetros um vetor de inteiros e o tamanho desse vetor. O loop na linha 167 percorre o vetor elemento por elemento e verifica se o elemento é múltiplo de 3 na linha 169. Se o elemento for múltiplo de 3, ele é impresso na tela na linha 172. Se nenhum elemento for múltiplo de 3, uma mensagem de erro é exibida na tela na linha 177.
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos
-*/
+int mult3(int array[], int n)
 {
-    int i; /* Variável utilizada para percorrer o Array A[], bem como para imprimir as posições multiplas de 3 */
+    int i;
+    int iniciar = 1;
     for (i = 0; i < n; i++)
     {
-            if (i % 3 == 0)
+            if (array[i] % 3 == 0)
             {   
-                printf("Array[%d] = %d. \n", i, A[i]);
+                iniciar = 0;
+                printf("Array[%d] = %d. \n", i, array[i]);
             }
+    }
+    if(iniciar == 1)
+    {
+        printf("Não existem multiplos de 3 no array.\n");
     }
 }
 
@@ -182,16 +145,9 @@ int mult3(int A[], int n)
 //
 
 float senodoarray(int A[], int N)
-/**
-    
-    @brief Calcula o seno de todos os elementos do vetor
-    @details  Esta é uma função em C que exibe o seno de cada elemento de um vetor. A função recebe como parâmetros um vetor de inteiros e o tamanho desse vetor. O loop na linha 187 percorre o vetor elemento por elemento e calcula o seno do elemento atual na linha 190. O seno é exibido no ecrã juntamente com elemento do vetor.
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos
-*/
 {
-    int i; /* Variável utilizada para percorrer o Array A[] */
-    for (i = 0; i < N; i++) 
+   
+    for (int i = 0; i < N; i++) 
     {
         printf("\n");
         printf("- O valor do seno do valor %d, e %f.\n", A[i], sin(A[i])); 
@@ -200,16 +156,12 @@ float senodoarray(int A[], int N)
 }
 
 
+// Função 3
+//
+
 void ordenararray(int A[], int N) 
-/**
-    
-    @brief Coloca o vetor por ordem decrescente 
-    @details Esta é uma função em C que ordena os elementos de um vetor em ordem decrescente. A função recebe como parâmetros um vetor de inteiros e o tamanho desse vetor. Os elementos do vetor A são copiados para um novo vetor “Array” na linha 207. Em seguida, o algoritmo de ordenação por seleção é aplicado no vetor “Array” na linha 212. O vetor “Array” é exibido na tela na linha 224 após ser ordenado.
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos
-*/
 {
-    int i; 
+    int i;
     int j;
     int temp;
     int Array[20];
@@ -236,16 +188,10 @@ void ordenararray(int A[], int N)
     }
 }
 
+// Função 4
+//
 
-void matrizT(int A[][20], int N, int inicar11)
-/**
-    
-    @brief Tranpõe a matriz introduzida na funcionalidade 10
-    @details A função Matriz T() é utilizada para transpor uma matriz ou seja trocar as linhas pelas colunas da mesma, a função recebe como argumentos de entrada a própria matriz com elementos inteiros, o tamanho da matriz(N), e um inteiro “iniciar11”, se  a variável “iniciar11” for igual a 1 a função automaticamente transpõe a matriz e armazena o resultado na matriz “z”, de seguida a matriz “z” é impressa,  caso contrario a função imprime uma mensagem  que comunica ao usuário que a matriz não foi inicializada. 
-    @param A[][20] - Array mencionado no main()
-    @param N - Quantidade de numeros inseridos
-    @param iniciar11 - Variável utilizada para iniciar a funcionalidade 11
-*/
+void matrizT(int y[][20], int N, int inicar11)
             {
                 if (inicar11 == 1)
                 {
@@ -256,7 +202,7 @@ void matrizT(int A[][20], int N, int inicar11)
 
                 for( i=0 ; i < N; i++){
                     for( j=0; j < N; j++){
-                         z[i][j] = A[j][i]; 
+                         z[i][j] = y[j][i]; 
                     }
                 }
 
@@ -277,14 +223,10 @@ void matrizT(int A[][20], int N, int inicar11)
                 }
             }
 
-void multVetores(int A[], int N)
-/**
-    
-    @brief Multiplica dois vetores
-    @details Esta é uma função em C que multiplica os elementos de dois vetores e armazena o resultado em um terceiro vetor. A função recebe como parâmetros um vetor de inteiros e o tamanho desse vetor. O vetor A é lido na entrada padrão na linha 273. Em seguida, os elementos dos vetores x e A são multiplicados um a um e o resultado é armazenado no vetor B na linha 283. Por fim, os elementos do vetor B são exibidos na tela na linha 286.
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos 
-*/
+// Função 5
+//
+
+void multVetores(int x[], int a)
 {
     int A[20], B[20], i;
     
@@ -311,22 +253,18 @@ void multVetores(int A[], int N)
 }
 
 
-int pertode15(int A[], int N)
-/**
-    
-    @brief Imprime o número mais próximo de 15 
-    @details  Esta é uma função em C que encontra o elemento de um vetor mais próximo de 15 e exibe-o na tela. A função recebe como parâmetros um vetor de inteiros e o tamanho desse vetor. O loop na linha 301 percorre o vetor elemento por elemento e calcula a diferença entre o elemento atual e 15 na linha 304. Se a diferença atual for menor que a diferença armazenada anteriormente, o índice do elemento atual é armazenado como o índice do elemento mais próximo de 15 e a diferença atual é armazenada como a diferença mínima. Após o loop, o elemento mais próximo de 15 é exibido na tela na linha 312.
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos 
-*/
+// Função 6
+//
+
+int pertode15(int a[], int N)
 {
     int k;
     int proximo = 0;  
-    int alphadif = abs(A[0] - 15);  
+    int alphadif = abs(a[0] - 15);  
     for (k = 1; k < N; k++)
     {
        
-        int difactual = abs(A[k] - 15);
+        int difactual = abs(a[k] - 15);
         if (difactual < alphadif)
         {
             proximo = k;
@@ -334,25 +272,21 @@ int pertode15(int A[], int N)
         }
     }
 
-    printf("O numero mais proximo de 15 e o %d.\n", A[proximo]);
+    printf("O numero mais proximo de 15 e o %d.\n", a[proximo]);
 }
 
-void divisaoArray(int A[], int N) 
-/**
-    
-    @brief Divide os elementos da matriz por 2
-    @details  Esta função faz a divisão de cada elemento de um array de elementos inteiros A por 2. O quociente desta operação é depois armazenado em outro array de elementos do tipo inteiro B, que de seguida é impresso pela função.
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos
-*/
+// Função 7
+//
+
+void divisaoArray(int A[], int tamanho) 
 {
   int i, B[20];
-    for (i = 0; i < N; i++) 
+    for (i = 0; i < tamanho; i++) 
         {
             B[i] = A[i] / 2;
         }
 
-    for (i = 0; i < N; i++) 
+    for (i = 0; i < tamanho; i++) 
         {
             printf("Array[%d] = %d.\n", i, B[i]);
         }
@@ -362,75 +296,59 @@ void divisaoArray(int A[], int N)
 // Função 8
 //
 
-void mdc(int A[], int N)
-/**
-    
-    @brief Calcula o minimo multiplo comum entre duas posições do vetor
-    @details  Esta função tem como objetivo calcular o mínimo múltiplo comum entre dois elementos consecutivos de um array de inteiros. Dentro da função, são declaradas três variáveis do tipo inteiro: i, j e k. De seguida, inicia-se um loop que percorre todo o array, exceto o último elemento (i < n - 1).
-    @details  A cada iteração do loop, a variável k é atribuída o valor do produto dos elementos consecutivos (array[i] * array[i + 1]). Em seguida, o valor de k é exibido na tela juntamente com os índices e os valores dos elementos do array.
-    @details Após o fim do loop, a função é finalizada.
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos
-*/
+void mdc(int array[], int n)
 {
     int i;
-    for (i = 0; i < N-1; i++) {
-        int mdc = 0, a = A[i], b = A[i+1];
-        while (b != 0) {
-            int r = a % b;
-            a = b;
-            b = r;
+    int j;
+    int k;
+    for (i=0; i < n - 1; i++)
+    {
+        k = array[i] * array[i+1];
+
+        if (k < 0)
+        {
+            k = k * -1;
         }
-        mdc = a;
-        int mmc = (A[i] * A[i+1]) / mdc;
-        if(mmc<0)
-            mmc=-mmc;
-        printf("O minimo multiplo comum entre Array[%d] (%d) e Array[%d] (%d) = %d. \n", i, A[i], i+1, A[i+1], mmc);
+
+        printf("O minimo multiplo comum entre Array[%d] (%d) e Array[%d] (%d) = %d. \n", i, array[i], i+1, array[i+1], k);
+    
     }
 }
 
 
+// Função 9
+//
 
-int novamatriz(int A[], int N, int B[][20], int iniciar11)
-/**
-    
-    @brief Multiplica dois vetores originando um vetor de duas dimensões
-    @details  Esta é uma função em C que lê um vetor de inteiros, multiplica esse vetor por outro lido da entrada padrão e armazena o resultado em uma matriz. A função recebe como parâmetros um vetor de inteiros e o tamanho desse vetor, uma matriz de inteiros e um inteiro inicial. O vetor array2 é lido da entrada padrão na linha 363. Em seguida, os elementos dos vetores A e array2 são multiplicados elemento a elemento e o resultado é armazenado na matriz array3 na linha 370. A matriz array3 é impressa na tela na linha 377. Por fim, os elementos da matriz array3 são copiados para a matriz B e o inteiro inicial é alterado para 1 antes de ser retornado pela função
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos 
-    @param iniciar11 - Variável utilizada para iniciar a funcionalidade 11
-    @param B[][20] - Array de duas dimensões 
-    @return  retorna o valor da variável iniciar11
-*/
+int novamatriz(int A[], int n, int B[][20], int iniciar11)
 {
     int i;
     int j;
     int array2[20];
     int array3[20][20];
 
-    for (i = 0; i < N; i++)
+    for (i = 0; i < 20; i++)
     {
         printf("Array[%d] = ", i);
         scanf("%d", &array2[i]);
     }
-    for (i = 0; i < N; i++)
+    for (i = 0; i < 20; i++)
     {
-        for (j = 0; j < N; j++)
+        for (j = 0; j < 20; j++)
         {
             array3[i][j] = A[i] * array2[j];
         }
     }
-    for (i = 0; i < N; i++)
+    for (i = 0; i < 20; i++)
     {
-        for (j = 0; j < N; j++)
+        for (j = 0; j < 20; j++)
         {
             printf("%4d ", array3[i][j]);
         }
         printf("\n");
     }
-        for (i = 0; i < N; i++)
+        for (i = 0; i < 20; i++)
     {
-        for (j = 0; j < N; j++)
+        for (j = 0; j < 20; j++)
         {
             B[i][j]  = array3[i][j];
         }
@@ -440,30 +358,24 @@ int novamatriz(int A[], int N, int B[][20], int iniciar11)
 }
 
 
-int matriz(int A[], int N)
-/**
-    
-    @brief Transforma uma matriz de 1 dimensão em uma matriz de 2 dimensões
-    @details Esta funcao cria uma matriz de 20x20 e preenche cada linha da matriz com o vetor lido e a seguida a mesma matriz é impressa.
-    @details A primeira linha do Array de 2 dimensoes é lida e as outras linhas são permutações dos seus valores, a funcao cria e imprime a matriz feita pela funcao através de dois loops.
-    @details O primeiro loop percorre as linhas da matriz e o segundo as colunas da mesma.
-    @param A[] - Array introduzido pelo utilizador
-    @param N - Quantidade de numeros inseridos 
-*/
+// Função 10
+//
+
+int matriz(int array[], int n)
 {
     int i;
     int j;
     int matriz[20][20];
-    for (i = 0; i < N; i++)
+    for (i = 0; i < 20; i++)
     {
-        for (j = 0; j < N; j++)
+        for (j = 0; j < 20; j++)
         {
-            matriz[i][j] = A[j];
+            matriz[i][j] = array[j];
         }
     }
-    for (i = 0; i < N; i++)
+    for (i = 0; i < 20; i++)
     {
-        for (j = 0; j < N; j++)
+        for (j = 0; j < 20; j++)
         {
             printf("%4d ", matriz[i][j]);
         }
@@ -472,15 +384,24 @@ int matriz(int A[], int N)
 }
 
 
+// Função 11
+//
+
+
+
+// Função 12
+//
+
+
+
+// Main
+//
+
 int main(int argc, char *argv[])
 {
     int c;
 
     while((c = getopt(argc, argv, "--help")) != -1)
-    /**
-    @brief Imprime no terminal o menu de ajuda
-    @details Função que imprime um menu de ajuda quando são introduzidos os seguintes comandos no terminal "cc ProjetoLP.c -lm -o Ajuda" , "./Ajuda --help"  
-    */
     {
         switch(c)
         {
@@ -502,14 +423,13 @@ int main(int argc, char *argv[])
                 printf("- Digite um numero inteiro que se encontre entre -5 e 11.:\n");
                 printf("7\n");
                 printf("\n");
-                printf("Ao introduzir a matriz ira ser impresso no seu ecra um menu com varias funcionalidade\n");
+                printf("Ao introduzir a matriz, ira ser impresso no seu ecra um menu com varias funcionalidade\n");
                 printf("Para utilizar uma dessas funcionalidade apenas tem de introduzir o numero da funcionalidade\n");
                 printf("que pretende utilizar.\n");
                 printf("\n");
                 printf("Por exemplo:\n");
                 printf("6 - Devolucao do vetor ordenado por ordem decrescente.\n");
-                printf("- Digite um numero inteiro que se encontre entre -5 e 11.:\n");
-                printf("6\n");
+                printf("Digite o numero da opcao pretendida: 6 \n");
                 printf("De seguida o programa ira realizar a funcionalidade que foi pedida pelo utilizador.\n");
                 printf("Por exemplo:\n");
                 printf("4\n5\n6\n");
@@ -519,8 +439,7 @@ int main(int argc, char *argv[])
                 printf("\n");
                 printf("Por exemplo:\n");
                 printf("4 - Identificação do valor mais proximo de 15.\n");
-                printf("- Digite um numero inteiro que se encontre entre -5 e 11.:\n");
-                printf("4\n");
+                printf("Digite o numero da opcao pretendida: 4\n");
                 printf("\n");
                 printf("Se pretender utlizar a funcionalidade 11 terá de realizar primeiro a funcionalidade 10.\n");
                 printf("\n");
@@ -539,30 +458,24 @@ int main(int argc, char *argv[])
         }
     }
 
-    /**
-    
-    @brief Função principal do programa 
-    @details Está funcão cria o menu de funcionalidade que podem ser utilizador pelo usuário.
-    */
-
     int n=0, x, i, opcao;
     int num[20];
     int num2[20][20];
     int iniciar11 = 0;
-    // numd -> numero dado
+     // numd -> numero dado
     //
     int tamanho=20;  
     //
     
     //
         
-    /* Verificacao dos valores introduzidos. */
+    // Verificacao dos valores introduzidos.
     //
 
     verificacao (num, tamanho);
 
     
-    /* Este comando faz com que a tela da consola seja apagada, só aparecendo a case do número inserido em cima. */
+    //Este comando faz com que a tela da consola seja apagada, só aparecendo a case do número inserido em cima.
     // 
     system("cls"); 
 
@@ -576,15 +489,15 @@ int main(int argc, char *argv[])
     printf("<----------------------------------------------------------------->\n");
     espaco();
     
-    /* goto menu */
+    // goto menu; vai ser redirecionado para aqui
     //
     menu:
 
     espaco();
     espaco();
 
-    /* Menu */
-    /*Função para escrever o menu*/
+    // Menu
+    // Função para escrever o menu
     //   
 
     menu();
@@ -593,7 +506,7 @@ int main(int argc, char *argv[])
     espaco();
 
     
-    /* O valor introduzido a baixo ser rederecionado para a case com o numero introduzido */
+    // O valor introduzido a baixo ser rederecionado para a case com o numero introduzido
     //
 
     printf("Digite o numero da opcao pretendida: ");
@@ -605,7 +518,7 @@ int main(int argc, char *argv[])
     switch (opcao)
     {
     case 1:
-        /* Devolução dos valores em posições múltiplas de três do vetor */
+        //Devolução dos valores em posições múltiplas de três do vetor;
         //
         
         espaco();
@@ -615,7 +528,7 @@ int main(int argc, char *argv[])
         goto menu;
 
     case 2:
-        /* Cálculo do seno (sin) de todos os elementos no vetor */
+        //Cálculo do seno (sin) de todos os elementos no vetor;
         //
         
         espaco();
@@ -625,7 +538,7 @@ int main(int argc, char *argv[])
         goto menu;
         
     case 3:
-        /* Cálculo da divisão de todos os elementos no vetor por 2 */
+        //Cálculo da divisão de todos os elementos no vetor por 2;
         //
         
         espaco();
@@ -635,7 +548,7 @@ int main(int argc, char *argv[])
         goto menu;
 
     case 4:
-        /* Identificação do valor mais próximo de 15 */
+        //Identificação do valor mais próximo de 15;  
         //          
         printf("| 4 |\n");
                
@@ -646,7 +559,7 @@ int main(int argc, char *argv[])
         goto menu;
         
     case 5:
-        /* Construção de uma matriz 20 por 20, em que cada linha é composta pelo vetor lido (primeira linha) e por permutações dos seus valores (outras linhas) */
+        //Construção de uma matriz 20 por 20, em que cada linha é composta pelo vetor lido (primeira linha) e por permutações dos seus valores (outras linhas);  
         //          
         
         espaco();
@@ -658,7 +571,7 @@ int main(int argc, char *argv[])
         goto menu;
 
     case 6:
-        /* Devolução do vetor ordenado por ordem decrescente */
+        //Devolução do vetor ordenado por ordem decrescente;    
         //        
         
         espaco();
@@ -668,7 +581,7 @@ int main(int argc, char *argv[])
         goto menu;
     
     case 7:
-        /* Ajuda */
+        // Ajuda;
         //
         
         espaco();
@@ -679,7 +592,7 @@ int main(int argc, char *argv[])
         goto menu;
 
     case 8:
-        /* Leitura de um novo vetor, cálculo  e  devolução  do  produto  interno com o vetor inicial */
+        // Leitura de um novo vetor, cálculo  e  devolução  do  produto  interno com o vetor inicial;
         //
         
         espaco();
@@ -690,7 +603,7 @@ int main(int argc, char *argv[])
         goto menu;
 
     case 9:
-        /* Cálculo do mínimo múltiplo comum de cada dois números seguidos do vetor */
+        // Cálculo do mínimo múltiplo comum de cada dois números seguidos do vetor;
         //
         
         espaco();
@@ -700,7 +613,7 @@ int main(int argc, char *argv[])
         goto menu;
 
     case 10:
-        /* Leitura  de  um novo vetor  1x20,  cálculo  e  devolução  da  matriz 20x20 resultante do produto do vetor inicial com o novo vetor gerado */
+        // Leitura  de  um novo vetor  1x20,  cálculo  e  devolução  da  matriz 20x20 resultante do produto do vetor inicial com o novo vetor gerado;
         //
         
         espaco();
@@ -712,7 +625,7 @@ int main(int argc, char *argv[])
         goto menu;
 
     case 11:
-        /* Cálculo e apresentação da matriz transposta referida no ponto anterior */
+        // Cálculo e apresentação da matriz transposta referida no ponto anterior;
         //
         
         espaco();
@@ -722,7 +635,7 @@ int main(int argc, char *argv[])
         goto menu;
     
     case 12:
-        /* Sair do programa */
+        // Sair do programa;
         //
         system("cls"); 
         printf("--> Saiu do programa <--\n");
